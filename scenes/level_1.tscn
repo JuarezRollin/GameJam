@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5xds4bpcrbc8"]
+[gd_scene load_steps=7 format=3 uid="uid://c5xds4bpcrbc8"]
 
 [ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="1_7s8cc"]
 
@@ -8,7 +8,10 @@
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_x7vbr"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_okhk4"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0gedc"]
+size = Vector2(107, 14)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ilswq"]
 
 [node name="Level 1" type="Node2D"]
 
@@ -34,9 +37,26 @@ texture = SubResource("CanvasTexture_x7vbr")
 position = Vector2(1, -10)
 zoom = Vector2(2, 2)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(-221, 0)
+[node name="Platform1" type="StaticBody2D" parent="."]
+position = Vector2(-221, 8)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1, 2)
-shape = SubResource("WorldBoundaryShape2D_okhk4")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1"]
+position = Vector2(-12.5, -1)
+shape = SubResource("RectangleShape2D_0gedc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform1"]
+position = Vector2(-12.5, -1)
+scale = Vector2(107, 14)
+texture = SubResource("CanvasTexture_ilswq")
+
+[node name="Platform2" type="StaticBody2D" parent="."]
+position = Vector2(-68, -39)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2"]
+position = Vector2(-12.5, -1)
+shape = SubResource("RectangleShape2D_0gedc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Platform2"]
+position = Vector2(-12.5, -1)
+scale = Vector2(107, 14)
+texture = SubResource("CanvasTexture_ilswq")
