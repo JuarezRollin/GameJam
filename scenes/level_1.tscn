@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5xds4bpcrbc8"]
+
+[ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="1_7s8cc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uw7o8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pxth2"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_x7vbr"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_okhk4"]
+
+[node name="Level 1" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(-264, -1)
+script = ExtResource("1_7s8cc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(-8, -9)
+sprite_frames = SubResource("SpriteFrames_uw7o8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-8, -9)
+shape = SubResource("CircleShape2D_pxth2")
+debug_color = Color(0, 0.542391, 0.950509, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(-8.25, -8.75)
+scale = Vector2(17.5, 18.5)
+texture = SubResource("CanvasTexture_x7vbr")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1, -10)
+zoom = Vector2(2, 2)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-221, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1, 2)
+shape = SubResource("WorldBoundaryShape2D_okhk4")
